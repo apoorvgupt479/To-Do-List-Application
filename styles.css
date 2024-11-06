@@ -1,0 +1,24 @@
+/* Styles for the top navigation bar */
+.navbar {
+    display: flex;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
