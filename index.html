@@ -26,19 +26,25 @@
         <section>
             <h2>Tasks</h2>
             <ul>
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
+                
             </ul>
         </section>
         <section>
             <h2>Add Task</h2>
-            <form>
-                <input type="text" name="task" placeholder="Enter task name">
-                <button type="submit">Add Task</button>
-            </form>
+            
+            <input type="text" name="task" placeholder="Enter task name">
+            <button type="button" onclick="addtask()">Add Task</button>
+            
         </section>
-
+        <script>
+            function addtask(){
+                var task = document.querySelector('input[name=task]').value;
+                var ul = document.querySelector('ul');
+                var li = document.createElement('li');
+                li.textContent = task;
+                ul.appendChild(li);
+            }
+        </script>
 
     </main>
 </body>
