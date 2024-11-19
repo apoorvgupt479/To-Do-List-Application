@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List Application</title>
+    <style>
+        /* CSS styles for the header */
+        header {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin: 0;
+        }
+        .list > div {
+            display: flex;
+            cursor: pointer;
+            flex-direction: row;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>To-Do List Application</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Add Task</h2>
+            
+            <input type="text" name="task" placeholder="Enter task name">
+            <button type="button" onclick="validate()">Add Task</button>
+            
+        </section>
+
+        <section>
+            <h2>Tasks</h2>
+            <ul>
+                
+            </ul>
+        </section>
+        <script>
+            
+            //select the ul element
+            var ul = document.querySelector('ul');
+
+            function addtask(){
+                //select the input field's value
+                var task = document.querySelector('input[name=task]').value;
+                //create a new list element
+                var li = document.createElement('li');
+                var div = document.createElement('div');
+                li.appendChild(div);
+
+                //create a new id for the list element and a class
+                var listItems = ul.getElementsByTagName('li');
+                var id = 'l' + (listItems.length + 1);
+                li.id = id;
+                li.class = 'list';
+                ul.appendChild(li);
+
+                var p = document.createElement('p');
+                p.textContent = task;
+                p.style.width = '500px';
+                div.appendChild(p);
+
+                var button2 = document.createElement('button');
+                button2.textContent = 'Delete';
+                button2.onclick = function() {
+                    ul.removeChild(li);
+                };
+                div.appendChild(button2);
+
+                document.querySelector('input[name=task]').value = '';
+            }
+            function validate(){
+                if (task.length != 0){
+                    addtask();
+                }
+            }
+            document.querySelector('input[name=task]').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    addtask();
+                }
+            });
+        </script>
+
+    </main>
+</body>
+</html>
